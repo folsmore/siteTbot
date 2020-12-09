@@ -13,7 +13,7 @@
     $phone = $result["message"]["from"]["phone_number"]; //Телефон пользователя
     if($text){
         if ($text == "/start") {
-            $reply = "Привет, отправь контакт";
+            $reply = "Привет, отправь";
             $replyMarkup3 =[
                 'keyboard' =>[ [ [
                     'text'=>'test',
