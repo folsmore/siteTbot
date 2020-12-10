@@ -14,8 +14,7 @@
     $keyboard = [["Последние статьи"],["Картинка"],["Гифка"]]; //Клавиатура
     if($text){
         if ($text == "/start") {
-            $reply = "Привет, отправь";
-          
+            $reply = "Привет, отправь контакт";
             $reply_markup = $telegram->replyKeyboardMarkup([ 
                 'keyboard' => $keyboard, 
                 'resize_keyboard' => true, 
