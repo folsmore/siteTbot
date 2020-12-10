@@ -15,17 +15,9 @@
     if($text){
         if ($text == "/start") {
             $reply = "Привет, отправь";
-            $replyMarkup3 =[
-                'keyboard' =>[ [ [
-                    'text'=>'test',
-                    'request_contact'=>true,
-                ]]],
-                'resize_keyboard'=>true,
-                'one_time_keyboard'=>true,
-            ];
+          
             $reply_markup = $telegram->replyKeyboardMarkup([ 
                 'keyboard' => $keyboard, 
-                'request_contact'=>true,
                 'resize_keyboard' => true, 
                 'one_time_keyboard' => false ]);
             $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $replyMarkup ]);
