@@ -10,7 +10,10 @@
     $name = $result["message"]["from"]["first_name"]; //Имя пользователя
     $surname = $result["message"]["from"]["last_name"]; //Фамилия пользователя
     $phone = $result["message"]["from"]["phone_number"]; //Телефон пользователя
-    $keyboard = [["Последние статьи"],["Картинка"],["Гифка"]]; //Клавиатура
+    $keyboard =[ [ [
+        'text'=>'Send contact',
+        'request_contact'=>true,
+    ]]];
     if($text){
         if ($text == "/start") {
             $reply = "Привет, отправь контакт";
