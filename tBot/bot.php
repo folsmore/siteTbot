@@ -30,7 +30,7 @@
             $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => "Отправьте текстовое сообщение." ]);
         } 
     }
-    getTextMessages();
+    getTextMessages($text,$keyboard);
     if(Message.chat  =='request_contact'){
 
     } 
