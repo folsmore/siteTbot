@@ -3,7 +3,6 @@
     use Telegram\Bot\Api; 
     $token = '';
     $telegram = new Api('1482885814:AAFu3S6CTLyGK7n1g65psKligPN4nMQr2eQ');
-    echo "bot";
     $result = $telegram -> getWebhookUpdates(); //данные о пользовательском сообщении
 
     $text = $result["message"]["text"]; //Текст сообщения
@@ -19,7 +18,7 @@
                 'keyboard' => $keyboard, 
                 'resize_keyboard' => true, 
                 'one_time_keyboard' => false ]);
-            $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $replyMarkup ]);
+            $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
         }
     }
     
