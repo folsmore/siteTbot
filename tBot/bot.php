@@ -14,20 +14,22 @@
         'text'=>'Send contact',
         'request_contact'=>true,
     ]]];
-    if($text){
-        if ($text == "/start") {
-            $reply = "Привет, отправь контакт";
-            $reply_markup = $telegram->replyKeyboardMarkup([ 
-                'keyboard' => $keyboard, 
-                'resize_keyboard' => true, 
-                'one_time_keyboard' => true ]);
-            $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $phone,$name,$surname, 'reply_markup' => $reply_markup ]);
+    function getTextMessages($text,$keyboard){
+        if($text){
+            if ($text == "/start") {
+                $reply = "Привет, отправь контакт";
+                $reply_markup = $telegram->replyKeyboardMarkup([ 
+                    'keyboard' => $keyboard, 
+                    'resize_keyboard' => true, 
+                    'one_time_keyboard' => true ]);
+                $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
+            }
         }
+        
+        else{
+            $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => "Отправьте текстовое сообщение." ]);
+        } 
     }
-    
-    else{
-        $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => "Отправьте текстовое сообщение." ]);
-    }  
     if(Message.chat  =='request_contact'){
 
     } 
