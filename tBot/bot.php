@@ -11,6 +11,7 @@
     $name = $result["message"]["from"]["first_name"]; //Имя пользователя
     $surname = $result["message"]["from"]["last_name"]; //Фамилия пользователя
     $phone = $result["message"]["from"]["phone_number"]; //Телефон пользователя
+    $keyboard = [["Последние статьи"],["Картинка"],["Гифка"]]; //Клавиатура
     if($text){
         if ($text == "/start") {
             $reply = "Привет, отправь";
@@ -22,7 +23,12 @@
                 'resize_keyboard'=>true,
                 'one_time_keyboard'=>true,
             ];
-            $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $replyMarkup3 ]);
+            $reply_markup = $telegram->replyKeyboardMarkup([ 
+                'keyboard' => $keyboard, 
+                'request_contact'=>true,
+                'resize_keyboard' => true, 
+                'one_time_keyboard' => false ]);
+            $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $replyMarkup ]);
         }
     }
     
