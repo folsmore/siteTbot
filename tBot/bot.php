@@ -1,8 +1,8 @@
 <?php
     include('vendor/autoload.php'); //Подключаем библиотеку
     use Telegram\Bot\Api; 
-    $token = '';
-    $telegram = new Api('1482885814:AAFu3S6CTLyGK7n1g65psKligPN4nMQr2eQ');
+    $token = '1482885814:AAFu3S6CTLyGK7n1g65psKligPN4nMQr2eQ';
+    $telegram = new Api($token);
     $result = $telegram -> getWebhookUpdates(); //данные о пользовательском сообщении
 
     $text = $result["message"]["text"]; //Текст сообщения
@@ -20,13 +20,16 @@
             $reply_markup = $telegram->replyKeyboardMarkup([ 
                 'keyboard' => $keyboard, 
                 'resize_keyboard' => true, 
-                'one_time_keyboard' => false ]);
-            $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup ]);
+                'one_time_keyboard' => true ]);
+            $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => $reply,$phone,$name,$surname, 'reply_markup' => $reply_markup ]);
         }
     }
     
     else{
         $telegram->sendMessage([ 'chat_id' => $chat_id, 'text' => "Отправьте текстовое сообщение." ]);
-    }   
+    }  
+    if(Message.chat  =='request_contact'){
+
+    } 
     
 ?>
